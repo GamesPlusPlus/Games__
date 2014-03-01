@@ -38,5 +38,6 @@ class Instruct {
     //display instructions
     text("In this game, the player is attempting to escape the city before time runs out! \nMove with WASD, jump with space, and interact with the world with your mouse. \nUse enter and control to flip in between the magic and science worlds. \nIn each world, you have different abilities. Use them to help you escape!", width/2, height/9);
     image(duck, width/2, height*7/18, duck.width*3, duck.height*3);
+    text("Le Quack approves", width/2, height*11/18);
   }
 }
