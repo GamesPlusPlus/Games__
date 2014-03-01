@@ -28,11 +28,27 @@ void setup()
 
 void draw()
 {
+  int intersected;
     //background(0);
     test.display();
     tests.display();
     tests.bridge();
   rect(width/2, height/2+50, 50, 50);
+  
+  // lignes
+  stroke(0);
+  
+  // ligne fixe
+  line(20,height/2, width-20, (height/2)-20);
+  
+  // ligne en mouvement
+  line(10,10,mouseX, mouseY);
+  
+  intersected = intersect(20, height/2, width-20, (height/2)-20, 10, 10, mouseX, mouseY);
+  
+  // dessiner le point d'intersection
+  noStroke();
+  if (intersected == DO_INTERSECT) ellipse(x, y, 5, 5);
 }
 
 boolean sketchFullScreen() {
