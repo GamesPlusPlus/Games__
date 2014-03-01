@@ -10,13 +10,14 @@ class Player {
   boolean allowLeft, allowRight;
   int facing; //0 is left, 1 is right
   int lastJump, jumpCD;
-
+  PImage img;
+  int walking = 0;
   Player() {
     facing = 0;
     lastJump = 0;
     jumpCD = 500;
     standing = true;
-    tall = 60;
+    tall = 80;
     fat = 30;
     step = 5;
     jump = 5;
@@ -53,15 +54,18 @@ class Player {
     }
     if (allowLeft) {
       loc.x = aPressed ? loc.x - step : loc.x;
-      facing = aPressed ? 0 : facing;
+      facing = aPressed ? 1 : facing;
       loc.x = (loc.x < 0) ? loc.x + step : loc.x;
     }
     if (allowRight) {
       loc.x = dPressed ? loc.x + step : loc.x;
-      facing = dPressed ? 1 : facing;
+      facing = dPressed ? 0 : facing;
       loc.x = (loc.x > width) ? loc.x - step : loc.x;
     }
-
+    if (aPressed || dPressed && standing) {
+      walking++;
+    }
+    img = charPics[world-1][(walking / 10) % 4][facing];
     //for testing only
     if (loc.y > height) {
       loc = new PVector(width/2, height/2);
@@ -71,8 +75,12 @@ class Player {
   }
 
   void display() {
-    fill(360);
-    rect(loc.x, loc.y, fat, tall);
+    if (img == null) {
+      img = charPics[world-1][0][facing];
+    }
+    //    fill(360);
+    //    rect(loc.x, loc.y, fat, tall);
+    image(img, loc.x, loc.y, (fat*2), tall);
   }
 }
 
