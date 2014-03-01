@@ -6,7 +6,7 @@ boolean sketchFullScreen() {
 
 Minim minim;
 AudioPlayer song;
-int y, world;
+int y, world, rot;
 PImage duck;
 Instruct instr;
 startScreenStuff starting;
@@ -22,6 +22,7 @@ void setup() {
   starting = new startScreenStuff();
   world = 0;
   y = 1;
+  rot = 5;
   minim = new Minim(this);//song set up
   song= minim.loadFile("Mozart.mp3");
   song.pause();
@@ -47,6 +48,16 @@ void draw() {
     break;
   case 3:
     instr.instructions();
+    break;
+    case 4:
+    background(0);
+    pushMatrix();
+    translate(width/2, height/2);
+    rotate(radians(rot));
+    textSize(50);
+    text("U L0SER \nl0l us sux \n l33t hax0rz", 0, 0);
+    popMatrix();
+    rot+=5;
     break;
   }
 }
