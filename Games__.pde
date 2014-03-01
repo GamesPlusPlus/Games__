@@ -19,7 +19,7 @@ void setup()
   song= minim.loadFile("Mozart.mp3");
   song.pause();
   song.play();
-  test = new Blocks_Class(width/2, height/2+50);
+  test = new Blocks_Class(width/2+100, height/2+50);
   bluelazer = loadImage("lazer1.png");
   redlazer = loadImage("lazer2.png");
   // this loads mysong.wav from the data folder
@@ -39,12 +39,11 @@ void draw()
   stroke(0);
   
   // ligne fixe
-  line(20,height/2, width-20, (height/2)-20);
+  line(tests.loc.x+17, tests.loc.y+2,tests.loc.x + 1000*cos(radians(tests.angle)),tests.loc.y + 1000*sin(radians(tests.angle)));
   
   // ligne en mouvement
-  line(10,10,mouseX, mouseY);
   
-  intersected = intersect(20, height/2, width-20, (height/2)-20, 10, 10, mouseX, mouseY);
+  intersected = intersect(tests.loc.x+17, tests.loc.y+2,tests.loc.x + 1000*cos(radians(tests.angle)),tests.loc.y + 1000*sin(radians(tests.angle)), test.loc.x-25, test.loc.y-25, test.loc.x-25, test.loc.y+25);
   
   // dessiner le point d'intersection
   noStroke();
