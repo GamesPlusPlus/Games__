@@ -110,7 +110,12 @@ void Light(boolean fire)
 {
   if (fire)
   {
-    image(black, playerx+25, playery+25);
+    rectMode(CORNER);
+    fill(0);
+    image(black, player.loc.x+25, player.loc.y+25);
+    rect(0,0,player.loc.x - 200, height);
+    rect(player.loc.x +200, 0, width, height);
+    rect(0,0,width,player.loc.y - 250);
   }
   else if (!fire)
   {

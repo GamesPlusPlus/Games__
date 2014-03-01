@@ -76,10 +76,11 @@ void draw() {
     //science world
   case 1:
     background(0);
-    image(sci, width/2, height/2, displayWidth, displayHeight);
-    //    fill(100);
-    //    rect(width/2, height*1/4, width, height);
-    walker.walk();
+image(mag, width/2, height/2, displayWidth, displayHeight);
+        fill(100);
+        //rect(width/2, height*1/4, width, height);
+        flyer.fly();
+ 
     if (key == CODED) {
       if (keyCode == CONTROL) {
         if (keyPressed) {
@@ -126,8 +127,10 @@ void draw() {
     //magic world
   case 2:
     background(0);
-    image(mag, width/2, height/2, displayWidth, displayHeight);
-    flyer.fly();
+    image(sci, width/2, height/2, displayWidth, displayHeight);
+    //rectMode(CORNER);
+    walker.walk();
+    rectMode(CENTER);
     if (key == CODED) {
       if (keyCode == CONTROL) {
         if (keyPressed) {
