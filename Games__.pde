@@ -6,7 +6,7 @@ int y;
  
 void setup()
 {
-  size(100, 100);
+  size(displayWidth, displayHeight);
  y = 1;
   minim = new Minim(this);//song set up
   song= minim.loadFile("Mozart.mp3");
@@ -19,4 +19,8 @@ void setup()
 void draw()
 {
   background(0);
+}
+
+boolean sketchFullScreen() {
+  return true;
 }
