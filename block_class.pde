@@ -27,8 +27,10 @@ class Blocks_Class {
 
   void update() {
     if (player.tall/2 + size/2 >= abs(player.loc.y - loc.y)) {
-      player.standing = true;
-      player.loc.y = loc.y - player.tall/2 - size/2;
+      if (!(abs(player.loc.x - loc.x) >= size/2 + player.fat/2)) {
+        player.standing = true;
+        player.loc.y = loc.y - player.tall/2 - size/2;
+      }
     }
   }
 }
