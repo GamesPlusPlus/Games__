@@ -13,15 +13,14 @@ class Blocks_Class
   }
   void display()
   {
-    if(world == 1)
+    /*if(world == 1)
     {
       fill(100,100,100);
     }
     if(world == 2)
     {
       fill(100,100,100);
-    }
+    }*/
     rectMode(CENTER);
-    rect(loc.x,loc.y,50,50);
   }
 }

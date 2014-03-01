@@ -5,6 +5,7 @@ class Light_Bridge
   boolean death;
   Light_Bridge(int x, int y, boolean d)
   {
+    angle = 0;
     loc = new PVector(x,y);
     vel = new PVector(0,0);
     acc = new PVector(0,0);
@@ -13,6 +14,7 @@ class Light_Bridge
     death = d;
     rectMode(CENTER);
     imageMode(CENTER);
+    colorMode(HSB,360,100,100);
   }
   void display()
   {
@@ -27,7 +29,10 @@ class Light_Bridge
   }
   void bridge()
   {
-    
+    strokeWeight(6);
+    stroke(238,90,79);
+    line(loc.x+17, loc.y+2,loc.x + 1000*cos(radians(angle)),loc.y + 1000*sin(radians(angle))); 
+    angle++;
   }
 }
 
