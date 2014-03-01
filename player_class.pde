@@ -36,11 +36,12 @@ class Player {
       acc = new PVector(0, 0);
     } 
     else {
-      acc = new PVector(0, .1);
+      acc = new PVector(0, .21);
     }
     if (spacePressed && standing && (millis()- lastJump > jumpCD)) {
       lastJump = millis();
       acc.y = (loc.y < 0) ? -jump : 0;
+      vel.y = -6;
     }
     if (!standing && !jumping) {
       loc.y += jump/10;
