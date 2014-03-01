@@ -3,7 +3,7 @@ boolean aPressed = false;
 boolean dPressed = false;
 boolean spacePressed = false;
 int world;
-Blocks_Class[] blocks = new Blocks_Class[1];
+Blocks_Class[] blocks = new Blocks_Class[2];
 
 void setup() {
   rectMode(CENTER);
@@ -12,11 +12,14 @@ void setup() {
   player = new Player();
   world = 1;
   blocks[0] = new Blocks_Class(width/2, height/2 + 100);
+  blocks[1] = new Blocks_Class(width/2 - 50, height/2 + 50);
 }
 
 void draw() {
   background(0);
-  blocks[0].display();
+  for (int i = 0; i < blocks.length; i++) {
+    blocks[i].display();
+  }
   player.display();
   player.update();
 }

@@ -51,13 +51,13 @@ class Player {
     }
     if (allowLeft) {
       loc.x = aPressed ? loc.x - step : loc.x;
+      loc.x = (loc.x < 0) ? loc.x + step : loc.x;
     }
-    loc.x = (loc.x < 0) ? loc.x + step : loc.x; 
     if (allowRight) {
       loc.x = dPressed ? loc.x + step : loc.x;
       loc.x = (loc.x > width) ? loc.x - step : loc.x;
     }
-    
+
     //for testing only
     if (loc.y > height) {
       loc = new PVector(width/2, height/2);
