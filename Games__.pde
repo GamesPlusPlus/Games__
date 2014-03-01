@@ -52,8 +52,10 @@ void draw() {
     //    rect(width/2, height*1/4, width, height);
     walker.walk();
     if (key == CODED) {
-      if (keyCode == ALT) {
-        world = 2;
+      if (keyCode == CONTROL) {
+        if (keyPressed) {
+          world = 2;
+        }
       }
     }
     break;
@@ -63,8 +65,10 @@ void draw() {
     image(mag, width/2, height/2, displayWidth, displayHeight);
     flyer.fly();
     if (key == CODED) {
-      if (keyCode == SHIFT) {
-        world = 1;
+      if (keyCode == CONTROL) {
+        if (keyPressed) {
+          world = 1;
+        }
       }
     }
     break;
@@ -83,3 +87,4 @@ void draw() {
     break;
   }
 }
+
