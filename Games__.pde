@@ -1,28 +1,15 @@
-/. ,<<<<<<< HEAD
 import ddf.minim.*;
- 
-Minim minim;
-AudioPlayer song;
-int y;
- 
-void setup()
-{
-  size(displayWidth, displayHeight);
- y = 1;
-  minim = new Minim(this);//song set up
-  song= minim.loadFile("Mozart.mp3");
-  song.pause();
-  song.play();
- 
-  // this loads mysong.wav from the data folder
-=======
-int world;
-Instruct instr;
-startScreenStuff starting;
 
 boolean sketchFullScreen() {
   return true;
 }
+
+Minim minim;
+AudioPlayer song;
+int y;
+int world;
+Instruct instr;
+startScreenStuff starting;
 
 void setup() {
   size(displayWidth, displayHeight);
@@ -32,13 +19,18 @@ void setup() {
   instr = new Instruct();
   starting = new startScreenStuff();
   world = 0;
+  y = 1;
+  minim = new Minim(this);//song set up
+  song= minim.loadFile("Mozart.mp3");
+  song.pause();
+  song.play();
 }
 
 void draw() {
   switch (world) {
     //start screen
   case 0:
-  starting.starts();
+    starting.starts();
     instr.display();
     instr.update();
     break;
@@ -55,14 +47,5 @@ void draw() {
     instr.instructions();
     break;
   }
->>>>>>> origin/Erik
 }
 
-void draw()
-{
-  background(0);
-}
-
-boolean sketchFullScreen() {
-  return true;
-}
