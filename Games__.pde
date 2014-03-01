@@ -33,7 +33,6 @@ void draw()
     test.display();
     tests.display();
     tests.bridge();
-  rect(width/2, height/2+50, 50, 50);
   
   // lignes
   stroke(0);
@@ -47,7 +46,14 @@ void draw()
   
   // dessiner le point d'intersection
   noStroke();
-  if (intersected == DO_INTERSECT) ellipse(x, y, 5, 5);
+  if (intersected == DO_INTERSECT)
+ {
+   ellipse(x, y, 5, 5);
+   if(tests.death)
+   {
+     
+   }
+ }
 }
 
 boolean sketchFullScreen() {
