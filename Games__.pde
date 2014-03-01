@@ -25,7 +25,7 @@ Blocks_Class test;
 int DONT_INTERSECT = 0;
 int COLLINEAR = 1;
 int DO_INTERSECT = 2;
-
+float x9,y9;
 PImage black;
 float playerx;
 float playery;
@@ -46,6 +46,8 @@ void setup() {
   starting = new startScreenStuff();
   world = 0;
   y = 1;
+  x9 = 0;
+  y9 = 0;
   rot = 5;
   minim = new Minim(this);//song set up
   song= minim.loadFile("Mozart.mp3");

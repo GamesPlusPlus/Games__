@@ -65,6 +65,8 @@ class Player {
     if (aPressed || dPressed && standing) {
       walking++;
     }
+    if(world!=0)
+    {
     img = charPics[world-1][(walking / 10) % 4][facing];
     //for testing only
     if (loc.y > height) {
@@ -72,6 +74,7 @@ class Player {
     }
     vel.add(acc);
     loc.add(vel);
+  }
   }
 
   void display() {

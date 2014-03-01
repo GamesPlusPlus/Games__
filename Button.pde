@@ -1,7 +1,7 @@
 boolean button(float x_, float y_, float w, float h) {
   float x5 = x_ - w/2;
   float y5 = y_ - h/2;
-  return (mousePressed && mouseX > x && mouseX < x + w&& mouseY > y && mouseY < y + h) ? true : false;
+  return (mousePressed && mouseX > x5 && mouseX < x5 + w&& mouseY > y5 && mouseY < y5 + h) ? true : false;
 }
 
 class startScreenStuff {
@@ -83,18 +83,18 @@ int intersect(float x1, float y1, float x2, float y2, float x3, float y3, float 
   // sign of the numerator.
   num = (b1 * c2) - (b2 * c1);
   if (num < 0) {
-    x = (num - offset) / denom;
+    x9 = (num - offset) / denom;
   } 
   else {
-    x = (num + offset) / denom;
+    x9 = (num + offset) / denom;
   }
 
   num = (a2 * c1) - (a1 * c2);
   if (num < 0) {
-    y = ( num - offset) / denom;
+    y9 = ( num - offset) / denom;
   } 
   else {
-    y = (num + offset) / denom;
+    y9 = (num + offset) / denom;
   }
 
   // lines_intersect
