@@ -1,10 +1,12 @@
 class Player {
   int hp, maxhp;
   int mana, maxMana;
-  int step, jump;
+  int step;
+  float jump;
+  float fall;
   int tall, fat;
-  PVector loc;
-  boolean standing;
+  PVector loc, vel, acc;
+  boolean standing, jumping;
   int lastJump, jumpCD;
 
   Player() {
@@ -14,12 +16,14 @@ class Player {
     tall = 60;
     fat = 30;
     step = 5;
-    jump = 20;
+    jump = 5;
     maxhp = 100;
     hp = maxhp;
     maxMana = 100;
     mana = 100;
     loc = new PVector(width/2, height/2);
+    vel = new PVector(0, 0);
+    acc = new PVector(0, 0);
   }
 
   void update() {
@@ -27,23 +31,31 @@ class Player {
     for (int i = 0; i < blocks.length; i++) {
       blocks[i].update();
     }
-    if (!standing) {
-      loc.y += jump;
+    if (standing) {
+      vel.y = 0;
+      acc = new PVector(0, 0);
+    } 
+    else {
+      acc = new PVector(0, .1);
     }
     if (spacePressed && standing && (millis()- lastJump > jumpCD)) {
       lastJump = millis();
-      jump();
-      loc.y = (loc.y < 0) ? loc.y + jump : loc.y;
+      acc.y = (loc.y < 0) ? -jump : 0;
+    }
+    if (!standing && !jumping) {
+      loc.y += jump/10;
     }
     loc.x = aPressed ? loc.x - step : loc.x;
     loc.x = (loc.x < 0) ? loc.x + step : loc.x; 
     loc.x = dPressed ? loc.x + step : loc.x;
     loc.x = (loc.x > width) ? loc.x - step : loc.x;
-    
+
     //for testing only
     if (loc.y > height) {
-     loc = new PVector(width/2, height/2); 
+      loc = new PVector(width/2, height/2);
     }
+    vel.add(acc);
+    loc.add(vel);
   }
 
   void display() {
@@ -51,8 +63,5 @@ class Player {
     rect(loc.x, loc.y, fat, tall);
   }    
 
-  void jump() {
-    loc.y -= jump;
-  }
 }
 
