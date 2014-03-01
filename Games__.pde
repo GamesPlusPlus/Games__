@@ -1,9 +1,17 @@
+
 import ddf.minim.*;
 enemy walker, flyer;
 boolean sketchFullScreen() {
   return true;
 }
 
+Player player;
+boolean aPressed = false;
+boolean dPressed = false;
+boolean spacePressed = false;
+Blocks_Class[] blocks = new Blocks_Class[9];
+PImage[][][] charPics = new PImage[2][4][2];
+//array x is for the world: 0 = sci, 1 = magic
 Minim minim;
 AudioPlayer song;
 int x, y, world, rot;
@@ -51,6 +59,8 @@ void setup() {
   // this loads mysong.wav from the data folder
   tests= new Light_Bridge(width/2, height/2, false);
   black=loadImage("Black3.png");
+  constructors();
+  player = new Player();
 }
 
 void draw() {
@@ -75,8 +85,8 @@ void draw() {
         }
       }
     }
- playerx=player.loc.x;
-  playery=player.loc.y;
+    playerx=player.loc.x;
+    playery=player.loc.y;
     playerx=mouseX;
     playery=mouseY;
     Light(true);
@@ -105,6 +115,11 @@ void draw() {
       {
       }
     }
+    for (int i = 0; i < blocks.length; i++) {
+      blocks[i].display();
+    }
+    player.display();
+    player.update();
     break;
     //magic world
   case 2:
@@ -118,6 +133,11 @@ void draw() {
         }
       }
     }
+    for (int i = 0; i < blocks.length; i++) {
+      blocks[i].display();
+    }
+    player.display();
+    player.update();
     break;
   case 3:
     instr.instructions();
@@ -134,4 +154,32 @@ void draw() {
     break;
   }
 }
+
+  void keyPressed() {
+    switch (key) {
+    case ' ':
+      spacePressed = true;
+      break;
+    case 'a':
+      aPressed = true;
+      break;
+    case 'd':
+      dPressed = true;
+      break;
+    }
+    player.update();
+  }
+
+  void keyReleased() {
+    switch (key) {
+    case ' ':
+      spacePressed = false;
+      break;
+    case 'a':
+      aPressed = false;
+      break;
+    case 'd':
+      dPressed = false;
+    }
+  }
 
