@@ -5,8 +5,11 @@ class Player {
   int tall, fat;
   PVector loc;
   boolean standing;
+  int lastJump, jumpCD;
 
   Player() {
+    lastJump = 0;
+    jumpCD = 500;
     standing = true;
     tall = 60;
     fat = 30;
@@ -27,7 +30,8 @@ class Player {
     if (!standing) {
       loc.y += jump;
     }
-    if (spacePressed && standing) {
+    if (spacePressed && standing && (millis()- lastJump > jumpCD)) {
+      lastJump = millis();
       jump();
       loc.y = (loc.y < 0) ? loc.y + jump : loc.y;
     }
