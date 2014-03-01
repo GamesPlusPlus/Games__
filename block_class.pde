@@ -32,6 +32,15 @@ class Blocks_Class {
         player.loc.y = loc.y - player.tall/2 - size/2;
       }
     }
+    if (player.tall/2 + size/2 > abs(player.loc.y - loc.y)) {
+      if (abs(player.loc.x - loc.x) - player.fat/2 - size/2 <= 0) {
+        if (player.loc.x < loc.x) {
+          player.allowRight = false;
+        }
+        if (player.loc.x > loc.x) {
+          player.allowLeft = false;
+        }
+      }
+    }
   }
 }
-

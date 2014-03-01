@@ -7,6 +7,7 @@ class Player {
   int tall, fat;
   PVector loc, vel, acc;
   boolean standing, jumping;
+  boolean allowLeft, allowRight;
   int lastJump, jumpCD;
 
   Player() {
@@ -28,6 +29,8 @@ class Player {
 
   void update() {
     standing = false;
+    allowRight = true;
+    allowLeft = true;
     for (int i = 0; i < blocks.length; i++) {
       blocks[i].update();
     }
@@ -46,11 +49,15 @@ class Player {
     if (!standing && !jumping) {
       loc.y += jump/10;
     }
-    loc.x = aPressed ? loc.x - step : loc.x;
+    if (allowLeft) {
+      loc.x = aPressed ? loc.x - step : loc.x;
+    }
     loc.x = (loc.x < 0) ? loc.x + step : loc.x; 
-    loc.x = dPressed ? loc.x + step : loc.x;
-    loc.x = (loc.x > width) ? loc.x - step : loc.x;
-
+    if (allowRight) {
+      loc.x = dPressed ? loc.x + step : loc.x;
+      loc.x = (loc.x > width) ? loc.x - step : loc.x;
+    }
+    
     //for testing only
     if (loc.y > height) {
       loc = new PVector(width/2, height/2);
@@ -62,7 +69,6 @@ class Player {
   void display() {
     fill(360);
     rect(loc.x, loc.y, fat, tall);
-  }    
-
+  }
 }
 
