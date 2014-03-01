@@ -40,4 +40,3 @@ class Instruct {
     image(duck, width/2, height*7/18, duck.width*3, duck.height*3);
   }
 }
-
