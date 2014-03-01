@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+/. ,<<<<<<< HEAD
 import ddf.minim.*;
  
 Minim minim;
