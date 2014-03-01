@@ -5,7 +5,7 @@ class Player {
   PVector loc;
 
   Player() {
-    step = 20;
+    step = 5;
     jump = 20;
     maxhp = 100;
     hp = maxhp;
@@ -16,16 +16,19 @@ class Player {
 
   void update() {
     switch (key) {
+    case ' ':
+      if (spacePressed) {
+        jump();
+        loc.y = (loc.y < 0) ? loc.y + jump : loc.y;
+      }
+      break;
     case 'a':
-      loc.x -= step;
+      loc.x = aPressed ? loc.x - step : loc.x;
       loc.x = (loc.x < 0) ? loc.x + step : loc.x; 
       break;
     case 'd':
-      loc.x += step;
+      loc.x = dPressed ? loc.x + step : loc.x;
       loc.x = (loc.x > width) ? loc.x - step : loc.x;
-      break;
-    case ' ':
-      jump();
       break;
     }
   }
