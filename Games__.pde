@@ -1,5 +1,6 @@
 int world;
 Instruct instr;
+startScreenStuff starting;
 
 boolean sketchFullScreen() {
   return true;
@@ -11,6 +12,7 @@ void setup() {
   rectMode(CENTER);
   //stuff to be declared
   instr = new Instruct();
+  starting = new startScreenStuff();
   world = 0;
 }
 
@@ -18,19 +20,7 @@ void draw() {
   switch (world) {
     //start screen
   case 0:
-    background(0);
-    textSize(20);
-    fill(0, 0, 100);
-    strokeWeight(5);
-    stroke(240, 100, 100, 70);
-    rect(width/2, height*7/18 + 7, width/2, height/9, 50);
-    fill(240, 100, 100, 70);
-    textAlign(CENTER);
-    text("START THE GAME", width/2, height*7/18 + 7);
-    textSize(100);
-    fill(0, 100, 100);
-    text("The Flip", width/2, height/4);
-    world = (button(width/2, height*7/18 + 7, width/2, height/9)) ? 1:0;
+  starting.starts();
     instr.display();
     instr.update();
     break;
