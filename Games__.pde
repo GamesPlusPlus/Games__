@@ -4,17 +4,22 @@ boolean dPressed = false;
 boolean spacePressed = false;
 int world;
 Blocks_Class[] blocks = new Blocks_Class[4];
+PImage[][] charPics = new PImage[2][4];
+//array x is for the world: 0 = sci, 1 = magic
 
 void setup() {
   rectMode(CENTER);
+  imageMode(CENTER);
   colorMode(HSB, 360, 100, 100);
   size(500, 500);
+  constructors();
   player = new Player();
   world = 1;
-  blocks[0] = new Blocks_Class(width/2, height/2 + 100);
-  blocks[1] = new Blocks_Class(width/2 - 50, height/2 + 50);
-  blocks[2] = new Blocks_Class(width/2 - 50, height/2 );
-  blocks[3] = new Blocks_Class(width/2, height/2 - 50);
+  for (int i = 0; i < 2; i++) {
+    for (int j = 0; j < 4; j++) {
+      charPics[0][0] = loadImage("walk("+i+")("+j+").png");
+    }
+  }
 }
 
 void draw() {

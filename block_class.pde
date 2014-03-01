@@ -29,7 +29,7 @@ class Blocks_Class {
     if (player.tall/2 + size/2 >= abs(player.loc.y - loc.y)) { // if it within y range of the block or standing on the block
       if (!(abs(player.loc.x - loc.x) >= size/2 + player.fat/2)) {// if it is stnding on the block but within x range
         player.standing = true;
-        if(player.loc.y > loc.y)
+        if (player.loc.y > loc.y)
         {
           player.loc.y = loc.y+56;
         }
@@ -37,7 +37,7 @@ class Blocks_Class {
         {
           player.loc.y = loc.y - player.tall/2 - size/2;
         }
-        
+
         player.vel.y = 0;
       }
     }

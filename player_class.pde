@@ -8,9 +8,11 @@ class Player {
   PVector loc, vel, acc;
   boolean standing, jumping;
   boolean allowLeft, allowRight;
+  int facing; //0 is left, 1 is right
   int lastJump, jumpCD;
 
   Player() {
+    facing = 0;
     lastJump = 0;
     jumpCD = 500;
     standing = true;
@@ -51,10 +53,12 @@ class Player {
     }
     if (allowLeft) {
       loc.x = aPressed ? loc.x - step : loc.x;
+      facing = aPressed ? 0 : facing;
       loc.x = (loc.x < 0) ? loc.x + step : loc.x;
     }
     if (allowRight) {
       loc.x = dPressed ? loc.x + step : loc.x;
+      facing = dPressed ? 1 : facing;
       loc.x = (loc.x > width) ? loc.x - step : loc.x;
     }
 
