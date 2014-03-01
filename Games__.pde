@@ -6,8 +6,8 @@ boolean sketchFullScreen() {
 
 Minim minim;
 AudioPlayer song;
-int y;
-int world;
+int y, world;
+PImage duck;
 Instruct instr;
 startScreenStuff starting;
 
@@ -15,7 +15,9 @@ void setup() {
   size(displayWidth, displayHeight);
   colorMode(HSB, 360, 100, 100, 100);
   rectMode(CENTER);
+  imageMode(CENTER);
   //stuff to be declared
+  duck = loadImage("Duck.jpg");
   instr = new Instruct();
   starting = new startScreenStuff();
   world = 0;
