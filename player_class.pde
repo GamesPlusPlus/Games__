@@ -2,9 +2,14 @@ class Player {
   int hp, maxhp;
   int mana, maxMana;
   int step, jump;
+  int tall, fat;
   PVector loc;
+  boolean standing;
 
   Player() {
+    standing = true;
+    tall = 60;
+    fat = 30;
     step = 5;
     jump = 20;
     maxhp = 100;
@@ -15,6 +20,13 @@ class Player {
   }
 
   void update() {
+    standing = false;
+    for (int i = 0; i < blocks.length; i++) {
+      blocks[i].update();
+    }
+    if (!standing) {
+     loc.y += jump;
+    }
     switch (key) {
     case ' ':
       if (spacePressed) {
@@ -35,7 +47,7 @@ class Player {
 
   void display() {
     fill(360);
-    rect(loc.x, loc.y, 50, 50);
+    rect(loc.x, loc.y, fat, tall);
   }
 
   void jump() {
