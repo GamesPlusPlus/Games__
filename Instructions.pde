@@ -36,6 +36,6 @@ class Instruct {
     fill(240, 100, 100);
     fill(0, 100, 100);
     //display instructions
-    text("The Flip is game inspired by Portal and The Legend of Zelda: A Link to the Past.", width/2, height/9);
+    text("In this game, the player is attempting to escape the city before time runs out! \nMove with WASD, jump with space, and interact with the world with your mouse. \nUse enter to flip in between the magic and science worlds. \nIn each world, you have different abilities. Use them to help you escape!", width/2, height/9);
   }
 }
