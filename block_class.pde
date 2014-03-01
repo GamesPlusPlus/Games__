@@ -26,21 +26,31 @@ class Blocks_Class {
   }
 
   void update() {
-    if (player.tall/2 + size/2 >= abs(player.loc.y - loc.y)) {
-      if (!(abs(player.loc.x - loc.x) >= size/2 + player.fat/2)) {
+    if (player.tall/2 + size/2 >= abs(player.loc.y - loc.y)) { // if it within y range of the block or standing on the block
+      if (!(abs(player.loc.x - loc.x) >= size/2 + player.fat/2)) {// if it is stnding on the block but within x range
         player.standing = true;
-        player.loc.y = loc.y - player.tall/2 - size/2;
+        if(player.loc.y > loc.y)
+        {
+          player.loc.y = loc.y+56;
+        }
+        else
+        {
+          player.loc.y = loc.y - player.tall/2 - size/2;
+        }
+        
+        player.vel.y = 0;
       }
     }
-    if (player.tall/2 + size/2 > abs(player.loc.y - loc.y)) {
-      if (abs(player.loc.x - loc.x) - player.fat/2 - size/2 <= 0) {
-        if (player.loc.x < loc.x) {
+    if (player.tall/2 + size/2 > abs(player.loc.y - loc.y)) { // if it within y range of the block and not standing on it
+      if (abs(player.loc.x - loc.x) - player.fat/2 - size/2 <= 0) { //if it is not standing on the block but within x range
+        if (player.loc.x < loc.x) { //if it's to the left of the block
           player.allowRight = false;
         }
-        if (player.loc.x > loc.x) {
+        if (player.loc.x > loc.x) { //if it's to the right
           player.allowLeft = false;
         }
       }
     }
   }
 }
+
