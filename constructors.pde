@@ -1,7 +1,5 @@
 void constructors() {
-  for (int i = 0; i < 9; i++) {
-    blocks[i] = new Blocks_Class(i*50+25, 300);
-  }
+ 
   charPics[0][0][0] = loadImage("walk(0)(0).png");
   charPics[0][1][0] = loadImage("walk(0)(1).png");
   charPics[0][2][0] = loadImage("walk(0)(2).png");

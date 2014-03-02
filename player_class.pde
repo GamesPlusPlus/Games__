@@ -31,11 +31,16 @@ class Player {
   }
 
   void update() {
+    
     standing = false;
     allowRight = true;
     allowLeft = true;
-    for (int i = 0; i < blocks.length; i++) {
-      blocks[i].update();
+    for (int j = 0; j < 20; j++) {
+      for (int k = 0; k < 6; k++) {
+        if (l1.bools[world-1][j][k]) {
+          l1.blocks[world-1][j][k].update();
+        }
+      }
     }
     if (standing) {
       vel.y = 0;
