@@ -37,6 +37,8 @@ class Player {
     allowLeft = true;
     for (int j = 0; j < 20; j++) {
       for (int k = 0; k < 6; k++) {
+        if(world !=0)
+        {
         if (l1.bools[world-1][j][k]) {
           l1.blocks[world-1][j][k].update();
         }
@@ -80,8 +82,8 @@ class Player {
     vel.add(acc);
     loc.add(vel);
   }
+    }
   }
-
   void display() {
     if (img == null) {
       img = charPics[world-1][0][facing];
