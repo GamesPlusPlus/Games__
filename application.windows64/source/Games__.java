@@ -821,7 +821,7 @@ class Player {
 }
 
   static public void main(String[] passedArgs) {
-    String[] appletArgs = new String[] { "--full-screen", "--bgcolor=#666666", "--stop-color=#cccccc", "Games__" };
+    String[] appletArgs = new String[] { "--full-screen", "--bgcolor=#666666", "--hide-stop", "Games__" };
     if (passedArgs != null) {
       PApplet.main(concat(appletArgs, passedArgs));
     } else {
