@@ -150,7 +150,7 @@ void draw() {
     instr.display();
     instr.update();
     break;
-    //science world
+    //YOU LIED ITS MAGIC
   case 1:
     background(0);
     image(mag, width/2, height/2, displayWidth, displayHeight);
@@ -220,7 +220,7 @@ void draw() {
     player.update();
 
     break;
-    //magic world
+    //SCI world
 
   case 2:
     background(0);
