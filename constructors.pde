@@ -1,4 +1,4 @@
-void constructors() {
+/*void constructors() {
  
   charPics[0][0][0] = loadImage("walk(0)(0).png");
   charPics[0][1][0] = loadImage("walk(0)(1).png");
@@ -17,5 +17,5 @@ void constructors() {
   charPics[1][1][1] = loadImage("walk(1)(1) - Copy.png");
   charPics[1][2][1] = loadImage("walk(1)(2) - Copy.png");
   charPics[1][3][1] = loadImage("walk(1)(3) - Copy.png");
-}
+}*/
 

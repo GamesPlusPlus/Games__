@@ -1,5 +1,5 @@
 
-import ddf.minim.*;
+//import ddf.minim.*;
 enemy walker, flyer;
 boolean sketchFullScreen() {
   return true;
@@ -12,8 +12,8 @@ boolean spacePressed = false;
 PImage[][][] charPics = new PImage[2][4][2];
 //array x is for the world: 0 = sci, 1 = magic
 
-Minim minim;
-AudioPlayer song;
+//Minim minim;
+//AudioPlayer song;
 int  world, rot;
 PImage duck, tank, bat, sci, mag;
 Instruct instr;
@@ -52,10 +52,10 @@ void setup()
   x9 = 0;
   y9 = 0;
   rot = 5;
-  minim = new Minim(this);//song set up
+ /* minim = new Minim(this);//song set up
   song= minim.loadFile("Mozart.mp3");
   song.pause();
-  song.play();
+  song.play();*/
   walker = new enemy(width/2, height/2);
   flyer = new enemy(width/2, height/2);
   test = new Blocks_Class(width/2+100, height/2+50);
@@ -64,7 +64,7 @@ void setup()
   // this loads mysong.wav from the data folder
   tests= new Light_Bridge(width/2, height/2, false);
   black=loadImage("Black3.png");
-  constructors();
+  //constructors();
   player = new Player();
   
   //new way of doing maps -W.Z.

@@ -1,5 +1,8 @@
 //changing how the maps are created -W.Z.
 
+//goes into setup:
+//  map1=createReader("map1.txt");
+
 BufferedReader map1;
 String line;
 void Maps ()
