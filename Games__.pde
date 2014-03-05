@@ -34,7 +34,8 @@ void setup()
 {
   l1= new Level(1);
 
-  size(displayWidth, displayHeight);
+  //size(displayWidth, displayHeight);
+  size(500,500); //just for testing -W.Z.
   colorMode(HSB, 360, 100, 100, 100);
   rectMode(CENTER);
   imageMode(CENTER);
@@ -65,6 +66,9 @@ void setup()
   black=loadImage("Black3.png");
   constructors();
   player = new Player();
+  
+  //new way of doing maps -W.Z.
+  map1=createReader("map1.txt");
 }
 //int intersect(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4) {
 //
